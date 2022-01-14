@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="contact">
+        <h3>{% block title %} Contact Me {% endblock %}</h3>
+        <p> Send me an email and I will get back to you within two business days.</p>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.name.label }} <br>
+                {{ form.name(size=32) }} <br>
+                {% for error in form.name.errors %}
+                    <span style="color:  red">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.email.label }} <br>
+                {{ form.email(size=32) }} <br>
+                {% for error in form.email.errors %}
+                    <span style="color:  red">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.subject.label }} <br>
+                {{ form.subject(size=32) }} <br>
+                {% for error in form.subject.errors %}
+                    <span style="color:  red">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.message.label }} <br>
+                {{ form.message(size=32) }} <br>
+                {% for error in form.message.errors %}
+                    <span style="color:  red">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+
+{% endblock %}
